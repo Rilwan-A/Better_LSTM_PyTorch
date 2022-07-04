@@ -73,7 +73,7 @@ class LSTM(nn.LSTM):
                 layer_count = self.num_layers
                 mask = param.new_ones(param.size(0)//layer_count, 1)
                 mask = mask.repeat(layer_count,1)
-                mask = torch.nn.functional.dropout(mask, p=self.dropout, training=self.training)
+                mask = torch.nn.functional.dropout(mask, p=self.dropoutw, training=self.training)
                 # getattr(self, name).data = \
                 #     torch.nn.functional.dropout(param.data, p=self.dropoutw,
                 #                                 training=self.training).contiguous()
